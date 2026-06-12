@@ -70,7 +70,7 @@ while running :
             running = False
             print()
 
-            print(f"{color_orange}Thank you for using PyGeoterm!{color_reset}")
+            print(f"{color_orange}Thank you for using RAM monitor!{color_reset}")
             print(f"{color_orange}Author : https://github.com/MultiRight{color_reset}")
 
             
@@ -98,7 +98,7 @@ while running :
             running = False
             print()
 
-            print(f"{color_orange}Thank you for using PyGeoterm!{color_reset}")
+            print(f"{color_orange}Thank you for using RAM monitor!{color_reset}")
             print(f"{color_orange}Author : https://github.com/MultiRight{color_reset}")
 
             break
@@ -126,7 +126,7 @@ while running :
             running = False
             print()
 
-            print(f"{color_orange}Thank you for using PyGeoterm!{color_reset}")
+            print(f"{color_orange}Thank you for using RAM monitor!{color_reset}")
             print(f"{color_orange}Author : https://github.com/MultiRight{color_reset}")
 
             break
