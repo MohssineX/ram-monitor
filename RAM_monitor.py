@@ -59,7 +59,7 @@ while running :
 
             print()
 
-            print(f"{color_light_blue}Extremely Hight Ram usage{color_reset}")
+            print(f"{color_light_blue}Extremely High Ram usage{color_reset}")
             print(f"Status : {color_red}Bad{color_reset}")
 
             time.sleep(0.5)
