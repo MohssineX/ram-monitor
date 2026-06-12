@@ -15,7 +15,7 @@ if sys.platform == "win32":
     import os
     os.system("")
     
-# clear this screen to strat a application 
+# clear this screen to start the application 
 
 print("\033c", end="")
 
@@ -74,7 +74,7 @@ while running :
 
         print()
 
-        print(f"{color_per}total Ram :{total_rounded} GB    {color_reset}")
+        print(f"{color_per}total Ram : {total_rounded} GB    {color_reset}")
         print(f"{color_per}usage Ram : {used_rounded} GB    {color_reset}")
         print(f"{color_per}available Ram : {available_rounded} GB    {color_reset}")
         print(f"{color_per}usage Ram % : {percent_ram} %  {color_reset}")
