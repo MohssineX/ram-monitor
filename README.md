@@ -28,14 +28,6 @@ RAM-Monitor continuously tracks system memory usage and displays it in the termi
 
 ---
 
-## Download
-
-[Download latest release](https://github.com/MultiRight/RAM-monitor/releases/tag/v1.0.0)
-
-> If you do not trust the provided binary, you can build it yourself using PyInstaller. See the Installation section below.
-
----
-
 ## Installation
 
 **Clone the repository:**
