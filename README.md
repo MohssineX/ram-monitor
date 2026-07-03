@@ -1,83 +1,83 @@
 # ram-monitor
 
-A lightweight terminal-based RAM monitoring tool written in Python.
-Displays real-time memory usage with color-coded status indicators.
-
----
-
-## Overview
-
-ram-monitor continuously tracks system memory usage and displays it in the terminal with color-coded output based on consumption levels. It is designed to be simple, cross-platform, and dependency-minimal.
-
----
+A lightweight terminal utility for monitoring system RAM usage in real time.
 
 ## Features
 
-- Real-time RAM usage monitoring
-- Color-coded output based on usage thresholds
-- Cross-platform support: Windows and Linux
-- Lightweight with minimal dependencies
-- Clean terminal display with automatic refresh
-
----
+* Real-time memory monitoring
+* Displays total, used, and available RAM
+* Live RAM usage percentage
+* Color-coded status indicators
+* Automatic terminal refresh
+* Supports both Linux and Windows
+* Lightweight and easy to use
 
 ## Requirements
 
-- Python 3.6 or higher
-- psutil
-
----
+* Python 3.x
+* psutil
 
 ## Installation
 
-**Clone the repository:**
-
 ```bash
-git clone https://github.com/MohssineX/ram-monitor
+git clone https://github.com/MohssineX/ram-monitor.git
 cd ram-monitor
 ```
 
-**Install dependencies:**
+Install the required dependency:
 
 ```bash
 pip install psutil
 ```
----
 
 ## Usage
+
+Run the program:
 
 ```bash
 python ram-monitor.py
 ```
-> **Tip:** If `python` does not work, try:
-> ```bash
-> python3 ram-monitor.py
-> ```
 
-To stop the monitor, press `Ctrl+C`. A goodbye message will be displayed before exiting.
+If your system uses `python3`:
 
----
+```bash
+python3 ram-monitor.py
+```
 
-## Status Thresholds
+The monitor updates automatically and displays:
 
-| RAM Usage     | Status      | Color  |
-|---------------|-------------|--------|
-| Below 60%     | Very Good   | Green  |
-| 60% to 79%    | Good        | Orange |
-| 80% and above | Bad         | Red    |
+* Total RAM
+* Used RAM
+* Available RAM
+* Memory usage percentage
+* Current memory status
 
----
+Stop the monitor at any time with:
 
-## Platform Notes
+```text
+Ctrl + C
+```
 
-- **Linux**: Full support including terminal clear via ANSI escape codes.
-- **Windows**: Full support. ANSI escape codes are enabled automatically at startup.
+## Status Levels
+
+| RAM Usage | Status    |
+| --------- | --------- |
+| Below 60% | Very Good |
+| 60% – 79% | Good      |
+| 80%+      | Bad       |
+
+## Platform Support
+
+* Linux
+* Windows
+
+ANSI color support is enabled automatically on Windows.
 
 ---
 
 ## License
 
-This project is licensed under the **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)** 
+This project is licensed under the **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)**
 
 ---
 
@@ -90,4 +90,4 @@ This project is licensed under the **[GNU General Public License v3.0](https://w
 
 ## 🐱 Special Thanks
 
-A special thanks to mimi — the legendary, the great, the gentle cat. 
+A special thanks to mimi — the legendary, the great, the gentle cat.
