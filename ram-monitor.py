@@ -25,7 +25,7 @@ print("\033c", end="")
 
 color_red = "\033[31m"
 color_green = "\033[32m"
-color_orange = "\033[33m"
+color_yellow = "\033[33m"
 color_light_blue = "\033[94m"
 color_reset = "\033[0m"
 
@@ -61,7 +61,7 @@ while running :
         ram_desc = "Extremely High Ram usage "
 
     elif 60 <= percent_ram < 80 :
-        color_per = color_orange
+        color_per = color_yellow
         status = "Good      "
         ram_desc = "Medium Ram Usage          "
         
@@ -105,9 +105,8 @@ while running :
             running = False
             print()
 
-            print(f"{color_orange}Thank you for using ram-monitor!{color_reset}")
-            print(f"{color_orange}Author : https://github.com/MohssineX{color_reset}")
+            print(f"{color_yellow}Thank you for using ram-monitor!{color_reset}")
+            print(f"{color_yellow}Author : https://github.com/MohssineX{color_reset}")
             
-
 
 
