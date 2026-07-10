@@ -1,4 +1,4 @@
-# mimi is a nice cat 🐱
+# mimi is a nice cat 
 
 # github : https://github.com/MohssineX
 
