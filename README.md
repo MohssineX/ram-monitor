@@ -1,5 +1,8 @@
 # 💾 ram-monitor
 
+![Python](https://img.shields.io/badge/python-3-blue)
+![License](https://img.shields.io/badge/license-GPL-blue)
+
 A lightweight terminal utility for monitoring system RAM usage in real time.
 
 ## Features
