@@ -1,4 +1,4 @@
-# 💾 ram-monitor
+# ram-monitor
 
 ![Python](https://img.shields.io/badge/python-3-blue)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
@@ -17,8 +17,9 @@ A lightweight terminal utility for monitoring system RAM usage in real time.
 
 ## Requirements
 
-* Python 3.x
+* Python 3.6 or later
 * psutil
+* Terminal with ANSI escape sequence support
 
 ## Installation
 
