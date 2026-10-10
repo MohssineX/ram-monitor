@@ -2,6 +2,8 @@
 
 ![Python](https://img.shields.io/badge/python-3-blue)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
+![Stars](https://img.shields.io/github/stars/MohssineX/ram-monitor?style=social)
+
 
 A lightweight terminal utility for monitoring system RAM usage in real time.
 
@@ -44,6 +46,12 @@ cd ram-monitor
 ```
 
 ### Install the required dependency :
+
+```bash
+pip install -r requirements.txt
+```
+
+Or
 
 ```bash
 pip install psutil
