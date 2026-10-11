@@ -5,15 +5,31 @@
 # Copyright (C) 2026 Mohssine <https://github.com/MohssineX>
 
 # import libraries
-import psutil
 import sys
-import time 
-import shutil
+import signal
 
 # Enable ANSI escape codes on Windows (not needed on Linux/Mac)
 if sys.platform == "win32":
     import os
     os.system("")
+
+# color variables
+color_yellow = "\033[33m"
+color_reset = "\033[0m"
+
+# Exit the application when pressing Ctrl+C.
+def handle_interrupt(sig, frame):
+    print()
+    print(f"{color_yellow}Thank you for using ram-monitor!{color_reset}")
+    print(f"{color_yellow}Author : https://github.com/MohssineX{color_reset}")
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_interrupt)
+
+# import libraries
+import psutil
+import shutil
+import time 
     
 # clear this screen to start the application 
 print("\033c", end="")
@@ -21,17 +37,12 @@ print("\033c", end="")
 # color variables
 color_red = "\033[31m"
 color_green = "\033[32m"
-color_yellow = "\033[33m"
 color_light_blue = "\033[94m"
-color_reset = "\033[0m"
-
-# while status
-running = True
 
 last_size = shutil.get_terminal_size()
 
 # Core
-while running:
+while True:
     # Extracting data related to the use of Random Access Memory (RAM).
     memory_telemetry = psutil.virtual_memory()
     total_ram = memory_telemetry.total
@@ -61,38 +72,26 @@ while running:
         ram_desc = "low ram usage              "
 
     # Display consumption data
+    current_size = shutil.get_terminal_size()
+    if current_size != last_size:
+        print("\033c", end="") 
+        last_size = current_size
     
-    try :
+    print(f"{color_light_blue}                               ram-monitor                               {color_reset}")
 
-        current_size = shutil.get_terminal_size()
-        if current_size != last_size:
-            print("\033c", end="") 
-            last_size = current_size
-        
-        print(f"{color_light_blue}                               ram-monitor                               {color_reset}")
+    print()
+    print("--------------------------------------------------------------------")
+    print(f"{color_per}total Ram : {total_rounded} GB    {color_reset}")
+    print(f"{color_per}usage Ram : {used_rounded} GB    {color_reset}")
+    print(f"{color_per}available Ram : {available_rounded} GB    {color_reset}")
+    print(f"{color_per}usage Ram % : {percent_ram} %  {color_reset}")
+    print("--------------------------------------------------------------------")
 
-        print()
-        print("--------------------------------------------------------------------")
-        print(f"{color_per}total Ram : {total_rounded} GB    {color_reset}")
-        print(f"{color_per}usage Ram : {used_rounded} GB    {color_reset}")
-        print(f"{color_per}available Ram : {available_rounded} GB    {color_reset}")
-        print(f"{color_per}usage Ram % : {percent_ram} %  {color_reset}")
-        print("--------------------------------------------------------------------")
+    print()
 
-        print()
+    print(f"{color_light_blue}{ram_desc}{color_reset}")
+    print(f"Status : {color_per}{status}{color_reset}")
 
-        print(f"{color_light_blue}{ram_desc}{color_reset}")
-        print(f"Status : {color_per}{status}{color_reset}")
-
-        time.sleep(0.5)
-        print("\033[H", end="")
-        
-        
-    except KeyboardInterrupt :
-
-            running = False
-            print()
-
-            print(f"{color_yellow}Thank you for using ram-monitor!{color_reset}")
-            print(f"{color_yellow}Author : https://github.com/MohssineX{color_reset}")
-            
+    time.sleep(0.5)
+    print("\033[H", end="")
+    
