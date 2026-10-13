@@ -62,6 +62,9 @@ pip install psutil
 Run the program :
 
 ```bash
+cd src
+```
+```bash
 python ram-monitor.py
 ```
 
