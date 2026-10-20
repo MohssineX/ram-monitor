@@ -38,58 +38,63 @@ color_red = "\033[31m"
 color_green = "\033[32m"
 color_light_blue = "\033[94m"
 
-last_size = shutil.get_terminal_size()
 
-# Core
-while True:
-    # Extracting data related to the use of Random Access Memory (RAM).
-    memory_telemetry = psutil.virtual_memory()
-    total_ram = memory_telemetry.total
-    used_ram = memory_telemetry.used
-    available_ram = memory_telemetry.available
-    percent_ram = memory_telemetry.percent
-    
-    # Data rounding
-    total_rounded = (round(total_ram / (1024 ** 3) , 2))
-    used_rounded = (round(used_ram / (1024 ** 3) , 2))
-    available_rounded = (round(available_ram / (1024 ** 3) , 2))
-    
-    # status ram usage levels
-    if percent_ram >= 80:
-        color_per = color_red
-        status = "Bad       "
-        ram_desc = "Extremely High Ram usage "
+def main():
+    last_size = shutil.get_terminal_size()
 
-    elif 60 <= percent_ram < 80:
-        color_per = color_yellow
-        status = "Good      "
-        ram_desc = "Medium Ram Usage          "
+    # Core
+    while True:
+        # Extracting data related to the use of Random Access Memory (RAM).
+        memory_telemetry = psutil.virtual_memory()
+        total_ram = memory_telemetry.total
+        used_ram = memory_telemetry.used
+        available_ram = memory_telemetry.available
+        percent_ram = memory_telemetry.percent
         
-    else: 
-        color_per = color_green
-        status = "Very Good "
-        ram_desc = "low ram usage              "
+        # Data rounding
+        total_rounded = (round(total_ram / (1024 ** 3) , 2))
+        used_rounded = (round(used_ram / (1024 ** 3) , 2))
+        available_rounded = (round(available_ram / (1024 ** 3) , 2))
+        
+        # status ram usage levels
+        if percent_ram >= 80:
+            color_per = color_red
+            status = "Bad       "
+            ram_desc = "Extremely High Ram usage "
 
-    # Display consumption data
-    current_size = shutil.get_terminal_size()
-    if current_size != last_size:
-        print("\033c", end="") 
-        last_size = current_size
-    
-    print(f"{color_light_blue}                               ram-monitor                               {color_reset}")
+        elif 60 <= percent_ram < 80:
+            color_per = color_yellow
+            status = "Good      "
+            ram_desc = "Medium Ram Usage          "
+            
+        else: 
+            color_per = color_green
+            status = "Very Good "
+            ram_desc = "low ram usage              "
 
-    print()
-    print("--------------------------------------------------------------------")
-    print(f"{color_per}total Ram : {total_rounded} GB    {color_reset}")
-    print(f"{color_per}usage Ram : {used_rounded} GB    {color_reset}")
-    print(f"{color_per}available Ram : {available_rounded} GB    {color_reset}")
-    print(f"{color_per}usage Ram % : {percent_ram} %  {color_reset}")
-    print("--------------------------------------------------------------------")
+        # Display consumption data
+        current_size = shutil.get_terminal_size()
+        if current_size != last_size:
+            print("\033c", end="") 
+            last_size = current_size
+        
+        print(f"{color_light_blue}                               ram-monitor                               {color_reset}")
 
-    print()
+        print()
+        print("--------------------------------------------------------------------")
+        print(f"{color_per}total Ram : {total_rounded} GB    {color_reset}")
+        print(f"{color_per}usage Ram : {used_rounded} GB    {color_reset}")
+        print(f"{color_per}available Ram : {available_rounded} GB    {color_reset}")
+        print(f"{color_per}usage Ram % : {percent_ram} %  {color_reset}")
+        print("--------------------------------------------------------------------")
 
-    print(f"{color_light_blue}{ram_desc}{color_reset}")
-    print(f"Status : {color_per}{status}{color_reset}")
+        print()
 
-    time.sleep(0.5)
-    print("\033[H", end="")
+        print(f"{color_light_blue}{ram_desc}{color_reset}")
+        print(f"Status : {color_per}{status}{color_reset}")
+
+        time.sleep(0.5)
+        print("\033[H", end="")
+
+if __name__ == "__main__":
+    main()
