@@ -1,8 +1,7 @@
 # mimi is a nice cat 
-
 # github : https://github.com/MohssineX
-
 # Copyright (C) 2026 Mohssine <https://github.com/MohssineX>
+# SPDX-License-Identifier: GPL-3.0-only
 
 # import libraries
 import sys
@@ -94,4 +93,3 @@ while True:
 
     time.sleep(0.5)
     print("\033[H", end="")
-    
