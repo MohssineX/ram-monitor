@@ -45,11 +45,11 @@ def main():
     # Core
     while True:
         # Extracting data related to the use of Random Access Memory (RAM).
-        memory_telemetry = psutil.virtual_memory()
-        total_ram = memory_telemetry.total
-        used_ram = memory_telemetry.used
-        available_ram = memory_telemetry.available
-        percent_ram = memory_telemetry.percent
+        mem = psutil.virtual_memory()
+        total_ram = mem.total
+        used_ram = mem.used
+        available_ram = mem.available
+        percent_ram = mem.percent
         
         # Data rounding
         total_rounded = (round(total_ram / (1024 ** 3) , 2))
