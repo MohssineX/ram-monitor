@@ -1,7 +1,7 @@
 # ram-monitor
 
-![Python](https://img.shields.io/badge/python-3-blue)
-![License](https://img.shields.io/badge/license-GPLv3-blue)
+![Python](https://img.shields.io/badge/python-3-3776AB?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-GPLv3-green)
 ![Stars](https://img.shields.io/github/stars/MohssineX/ram-monitor?style=social)
 
 
