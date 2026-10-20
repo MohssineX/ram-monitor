@@ -6,6 +6,8 @@
 # import libraries
 import sys
 import signal
+import shutil
+import time
 
 # Enable ANSI escape codes on Windows (not needed on Linux/Mac)
 if sys.platform == "win32":
@@ -23,12 +25,14 @@ def handle_interrupt(sig, frame):
     print(f"{color_yellow}Author : https://github.com/MohssineX{color_reset}")
     sys.exit(0)
 
-signal.signal(signal.SIGINT, handle_interrupt)
+signal.signal(signal.SIGINT, handle_interrupt) 
 
-# import libraries
-import psutil
-import shutil
-import time 
+# import psutil
+try:
+    import psutil
+except ImportError:
+    print("psutil is required. Install it with: pip install psutil")
+    sys.exit(1)
     
 # clear this screen to start the application 
 print("\033c", end="")
@@ -38,6 +42,8 @@ color_red = "\033[31m"
 color_green = "\033[32m"
 color_light_blue = "\033[94m"
 
+# clear variables
+CLEAR_LINE = "\033[K"
 
 def main():
     last_size = shutil.get_terminal_size()
@@ -59,18 +65,18 @@ def main():
         # status ram usage levels
         if percent_ram >= 80:
             color_per = color_red
-            status = "Bad       "
-            ram_desc = "Extremely High Ram usage "
+            status = "Bad"
+            ram_desc = "Extremely High Ram Usage"
 
         elif 60 <= percent_ram < 80:
             color_per = color_yellow
-            status = "Good      "
-            ram_desc = "Medium Ram Usage          "
+            status = "Normal"
+            ram_desc = "Medium Ram Usage"
             
         else: 
             color_per = color_green
-            status = "Very Good "
-            ram_desc = "low ram usage              "
+            status = "Very Good"
+            ram_desc = "Low Ram Usage"
 
         # Display consumption data
         current_size = shutil.get_terminal_size()
@@ -78,20 +84,20 @@ def main():
             print("\033c", end="") 
             last_size = current_size
         
-        print(f"{color_light_blue}                               ram-monitor                               {color_reset}")
+        print(f"{color_light_blue}{'ram-monitor'.center(68)}{color_reset}")
 
         print()
         print("--------------------------------------------------------------------")
-        print(f"{color_per}total Ram : {total_rounded} GB    {color_reset}")
-        print(f"{color_per}usage Ram : {used_rounded} GB    {color_reset}")
-        print(f"{color_per}available Ram : {available_rounded} GB    {color_reset}")
-        print(f"{color_per}usage Ram % : {percent_ram} %  {color_reset}")
+        print(f"{color_per}total Ram : {total_rounded} GB{color_reset}{CLEAR_LINE}")
+        print(f"{color_per}usage Ram : {used_rounded} GB{color_reset}{CLEAR_LINE}")
+        print(f"{color_per}available Ram : {available_rounded} GB{color_reset}{CLEAR_LINE}")
+        print(f"{color_per}usage Ram % : {percent_ram} %{color_reset}{CLEAR_LINE}")
         print("--------------------------------------------------------------------")
 
         print()
 
-        print(f"{color_light_blue}{ram_desc}{color_reset}")
-        print(f"Status : {color_per}{status}{color_reset}")
+        print(f"{color_light_blue}{ram_desc}{color_reset}{CLEAR_LINE}")
+        print(f"Status : {color_per}{status}{color_reset}{CLEAR_LINE}")
 
         time.sleep(0.5)
         print("\033[H", end="")
