@@ -66,17 +66,17 @@ def main():
         if percent_ram >= 80:
             color_per = color_red
             status = "Bad"
-            ram_desc = "Extremely High Ram Usage"
+            ram_desc = "extremely high ram usage"
 
         elif 60 <= percent_ram < 80:
             color_per = color_yellow
             status = "Normal"
-            ram_desc = "Medium Ram Usage"
+            ram_desc = "medium ram usage"
             
         else: 
             color_per = color_green
             status = "Very Good"
-            ram_desc = "Low Ram Usage"
+            ram_desc = "low ram usage"
 
         # Display consumption data
         current_size = shutil.get_terminal_size()
