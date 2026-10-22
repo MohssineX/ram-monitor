@@ -1,7 +1,10 @@
 # mimi is a nice cat 
+
 # github : https://github.com/MohssineX
 # Copyright (C) 2026 Mohssine <https://github.com/MohssineX>
 # SPDX-License-Identifier: GPL-3.0-only
+
+# ram-monitor.py
 
 # import libraries
 import sys
@@ -9,41 +12,42 @@ import signal
 import shutil
 import time
 
-# Enable ANSI escape codes on Windows (not needed on Linux/Mac)
-if sys.platform == "win32":
-    import os
-    os.system("")
-
-# color variables
-color_yellow = "\033[33m"
-color_reset = "\033[0m"
-
-# Exit the application when pressing Ctrl+C.
-def handle_interrupt(sig, frame):
-    print()
-    print(f"{color_yellow}Thank you for using ram-monitor!{color_reset}")
-    print(f"{color_yellow}Author : https://github.com/MohssineX{color_reset}")
-    sys.exit(0)
-
-signal.signal(signal.SIGINT, handle_interrupt) 
-
 # import psutil
 try:
     import psutil
 except ImportError:
     print("psutil is required. Install it with: pip install psutil")
     sys.exit(1)
-    
-# clear this screen to start the application 
-print("\033c", end="")
+
+# Enable ANSI escape codes on Windows (not needed on Linux/Mac)
+if sys.platform == "win32":
+    import os
+    os.system("")
 
 # color variables
-color_red = "\033[31m"
-color_green = "\033[32m"
-color_light_blue = "\033[94m"
+COLOR_YELLOW = "\033[33m"
+COLOR_RESET = "\033[0m"
+
+# Exit the application when pressing Ctrl+C.
+def handle_interrupt(sig, frame):
+    print()
+    print(f"{COLOR_YELLOW}Thank you for using ram-monitor!{COLOR_RESET}")
+    print(f"{COLOR_YELLOW}Author : https://github.com/MohssineX{COLOR_RESET}")
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_interrupt) 
+    
+# color variables
+COLOR_RED = "\033[31m"
+COLOR_GREEN = "\033[32m" 
+COLOR_LIGHT_BLUE = "\033[94m" 
 
 # clear variables
 CLEAR_LINE = "\033[K"
+CLEAR_SCREEN = "\033[H\033[2J\033[3J"
+
+# clear this screen to start the application 
+print(CLEAR_SCREEN, end="")
 
 def main():
     last_size = shutil.get_terminal_size()
@@ -64,40 +68,39 @@ def main():
         
         # status ram usage levels
         if percent_ram >= 80:
-            color_per = color_red
+            color_per = COLOR_RED
             status = "Bad"
             ram_desc = "Extremely High Ram Usage"
 
-        elif 60 <= percent_ram < 80:
-            color_per = color_yellow
+        elif 50 <= percent_ram < 80:
+            color_per = COLOR_YELLOW
             status = "Normal"
             ram_desc = "Medium Ram Usage"
             
         else: 
-            color_per = color_green
-            status = "Very Good"
+            color_per = COLOR_GREEN
+            status = "Good"
             ram_desc = "Low Ram Usage"
 
-        # Display consumption data
         current_size = shutil.get_terminal_size()
         if current_size != last_size:
-            print("\033c", end="") 
+            print(CLEAR_SCREEN, end="")
             last_size = current_size
-        
-        print(f"{color_light_blue}{'ram-monitor'.center(68)}{color_reset}")
 
+        # Display consumption data
+        print(f"{COLOR_LIGHT_BLUE}{'ram-monitor'.center(68)}{COLOR_RESET}")
         print()
         print("--------------------------------------------------------------------")
-        print(f"{color_per}total Ram : {total_rounded} GB{color_reset}{CLEAR_LINE}")
-        print(f"{color_per}usage Ram : {used_rounded} GB{color_reset}{CLEAR_LINE}")
-        print(f"{color_per}available Ram : {available_rounded} GB{color_reset}{CLEAR_LINE}")
-        print(f"{color_per}usage Ram % : {percent_ram} %{color_reset}{CLEAR_LINE}")
+        print(f"{color_per}Total Ram : {total_rounded} GB{COLOR_RESET}{CLEAR_LINE}")
+        print(f"{color_per}Usage Ram : {used_rounded} GB{COLOR_RESET}{CLEAR_LINE}")
+        print(f"{color_per}Available Ram : {available_rounded} GB{COLOR_RESET}{CLEAR_LINE}")
+        print(f"{color_per}Usage Ram % : {percent_ram} %{COLOR_RESET}{CLEAR_LINE}")
         print("--------------------------------------------------------------------")
 
         print()
 
-        print(f"{color_light_blue}{ram_desc}{color_reset}{CLEAR_LINE}")
-        print(f"Status : {color_per}{status}{color_reset}{CLEAR_LINE}")
+        print(f"{COLOR_LIGHT_BLUE}{ram_desc}{COLOR_RESET}{CLEAR_LINE}")
+        print(f"Status : {color_per}{status}{COLOR_RESET}{CLEAR_LINE}")
 
         time.sleep(0.5)
         print("\033[H", end="")
