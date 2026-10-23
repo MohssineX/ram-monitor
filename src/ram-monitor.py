@@ -52,10 +52,10 @@ def handle_exit(signum, frame):
 
 signal.signal(signal.SIGINT, handle_exit)  
 
-# clear this screen and hide cursor to start the application 
-print(CLEAR_SCREEN + HIDE_CURSOR, end="")
-
 def main():
+    # clear this screen and hide cursor to start the application 
+    print(CLEAR_SCREEN + HIDE_CURSOR, end="")
+    
     # Core
     while True:
         # Extracting data related to the use of Random Access Memory (RAM).
