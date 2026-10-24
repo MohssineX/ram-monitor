@@ -65,10 +65,10 @@ def main():
         available_ram = memory.available
         percent_ram = memory.percent
         
-        # Data rounding
-        total_rounded = (round(total_ram / BYTES_PER_GB , 2))
-        used_rounded = (round(used_ram / BYTES_PER_GB , 2))
-        available_rounded = (round(available_ram / BYTES_PER_GB , 2))
+        # Convert from Byte to GB
+        total_gb = (round(total_ram / BYTES_PER_GB , 2))
+        used_gb = (round(used_ram / BYTES_PER_GB , 2))
+        available_gb = (round(available_ram / BYTES_PER_GB , 2))
         
         # status ram usage levels
         if percent_ram >= 80:
@@ -90,9 +90,9 @@ def main():
         print(f"{COLOR_BRIGHT_BLUE}{'ram-monitor'.center(68)}{COLOR_RESET}{CLEAR_LINE}")
         print(CLEAR_LINE)
         print(f"════════════════════════════════════════════════════════════════════{CLEAR_LINE}")
-        print(f"{usage_color} Total Ram : {total_rounded} GB{COLOR_RESET}{CLEAR_LINE}")
-        print(f"{usage_color} Usage Ram : {used_rounded} GB{COLOR_RESET}{CLEAR_LINE}")
-        print(f"{usage_color} Available Ram : {available_rounded} GB{COLOR_RESET}{CLEAR_LINE}")
+        print(f"{usage_color} Total Ram : {total_gb} GB{COLOR_RESET}{CLEAR_LINE}")
+        print(f"{usage_color} Usage Ram : {used_gb} GB{COLOR_RESET}{CLEAR_LINE}")
+        print(f"{usage_color} Available Ram : {available_gb} GB{COLOR_RESET}{CLEAR_LINE}")
         print(f"{usage_color} Usage Ram % : {percent_ram} %{COLOR_RESET}{CLEAR_LINE}")
         print(f"════════════════════════════════════════════════════════════════════{CLEAR_LINE}")
         print(CLEAR_LINE)
