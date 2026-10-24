@@ -31,6 +31,8 @@ A lightweight terminal utility for monitoring system RAM usage in real time.
 - macOS
 - BSD (FreeBSD, OpenBSD, NetBSD)
 
+Tested on : Linux, Windows 
+
 ## Requirements
 
 * Python 3.6 or later
