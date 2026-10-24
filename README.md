@@ -29,6 +29,7 @@ A lightweight terminal utility for monitoring system RAM usage in real time.
 - Windows
 - Linux
 - macOS
+- BSD (FreeBSD, OpenBSD, NetBSD)
 
 ## Requirements
 
