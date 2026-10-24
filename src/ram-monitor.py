@@ -35,6 +35,7 @@ CLEAR_LINE = "\033[K"
 CLEAR_SCREEN = "\033[H\033[2J\033[3J"
 CLEAR_DOWN = "\033[J"
 
+# cursor variables
 CURSOR_HOME = "\033[H"
 HIDE_CURSOR = "\033[?25l"
 SHOW_CURSOR = "\033[?25h"
